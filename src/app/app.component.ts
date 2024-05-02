@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  templateUrl: 'app.component.html',
-  styleUrl: 'app.component.css',
+  selector    : 'app-root',
+  standalone  : true,
+  templateUrl : 'app.component.html',
+  styleUrl    : 'app.component.css',
   imports     : [CommonModule],
 })
 
@@ -14,17 +14,17 @@ export class AppComponent {
 
    public index = 0;
 
-   public tempTitle: any = { value: '' };
-   public tempNote: any = { value: '' };
+   public tempTitle : any = { value: '' };
+   public tempNote  : any = { value: '' };
    public tempAuthor: any = { value: '' };
    
-   public br=1;
-   public tempStar=0;
+   public br = 1;
+   public tempStar = 0;
    public message;
 
-  books=true;
-  showQuestion=false;
-  thankYou=false;
+  books         = true;
+  showQuestion  = false;
+  thankYou      = false;
 
 
   public bookCollection = [
@@ -40,28 +40,29 @@ export class AppComponent {
       notes: 'В тази класическа романтична комедия на Джейн Остин, семейството Бенет се изправя пред предизвикателствата на обществото в ранното 19-о вековие. ',
       author: 'Джейн Остин',
       rating: 0,
-      br:0
+      br: 0
     },
     {
       title: 'Война и мир', 
       notes: 'Тази епична руска класика на Лев Толстой проследява съдбите на няколко аристократични семейства през периода на Наполеоновите войни. ', 
       author: 'Лев Толстой',
       rating: 0,
-      br:0
+      br: 0
     },
     {
       title: 'Лорд на мухите',
       notes: 'В тази алегорична антиутопия, деца оцеляват след самолетна катастрофа на безлюден остров, където започват да създават своеобразно общество. "Лорд на мухите" изследва теми като човешката природа, властта и дружеството чрез проницателна и потресаваща история.', 
       author: 'Уилям Голдинг',
       rating: 0,
-      br:0
+      br: 0
     },
     {
       title: '1984', 
       notes: 'Джордж Оруел', 
       author: 'В този научно-фантастичен роман, Оруел представя свят, управляван от тоталитарен режим, където наблюдението и манипулацията на индивидуалността са повсеместни'     ,
       rating: 0,
-      br:0}
+      br: 0
+    }
   ];
 
   public processInputBookNote(input) {
@@ -77,17 +78,13 @@ export class AppComponent {
 
   public processNextBook(star) {
     this.updateRating(star);
-    
     this.processSaveBookData();
-
     this.resetTempData();
-
     this.index++;
 
     if (this.index >= this.bookCollection.length) {
       this.final();      
-    }
-    
+    }  
   }
   
   private updateRating(rating) {
@@ -122,30 +119,28 @@ export class AppComponent {
     }
   }
   
-
   private resetTempData() {
     this.tempTitle.value  = '';
     this.tempNote.value   = '';
     this.tempAuthor.value = '';
-
   }
 
   public final()
   {     
-    this.showQuestion=true;
-    this.books=false;       
+    this.showQuestion = true;
+    this.books        = false;       
   }
 
   public ok(){   
-    this.books=false;  
-    this.showQuestion=false;
-    this.thankYou=true;
+    this.books        = false;  
+    this.showQuestion = false;
+    this.thankYou     = true;
   }
 
   public repeat(){
     this.index = 0; 
-    this.books=true;  
-    this.showQuestion=false;
-    this.thankYou=false;
+    this.books        = true;  
+    this.showQuestion = false;
+    this.thankYou     = false;
   }
 }
