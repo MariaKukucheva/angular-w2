@@ -1,0 +1,49 @@
+<div *ngIf="books" class="book-wrapper">
+<div class="placeholder">
+  <div class="book-placeholder">
+    <div class="book-placeholder--title">
+      <h3>Име на книгата: </h3>
+      <p>{{ bookCollection[index].title || 'No Title' }}</p>
+    </div>
+    <div class="book-placeholder--note">
+      <h3>Описание:</h3>
+     <p>{{ bookCollection[index].notes || 'No Notes' }}</p>
+    </div>
+    <div class="book-placeholder--author">
+      <h3>Автор:</h3>
+     <p>{{ bookCollection[index].author || 'No Author'}}</p>
+    </div>
+    <div class="book-placeholder--author">
+      <h3>Рейтинг до момента:</h3>
+      <p>{{ bookCollection[index].rating || 'No Rating'}}</p>
+    </div>
+  </div>
+
+  <div class="vl"></div>
+
+  <div class="book-data">
+    <h3>Редактиране</h3>
+      <input (input)="processInputBookTitle($event)" type="text" placeholder="Заглавие на книгата">
+      <input (input)="processInputBookNote($event)" type="text" placeholder="Бележки към книгата">
+      <input (input)="processInputBookAuthor($event)" type="text" placeholder="Автор на книгата">
+  </div>
+  </div>
+  <br>
+  <div class="buttons">
+    <button (click)="processNextBook(1)"  class="button">1&#9733;</button>
+    <button (click)="processNextBook(2)"  class="button">2&#9733;</button>
+    <button (click)="processNextBook(3)"  class="button">3&#9733;</button>
+    <button (click)="processNextBook(4)"  class="button">4&#9733;</button>
+    <button (click)="processNextBook(5)"  class="button">5&#9733;</button>
+  </div> 
+</div>
+
+<div *ngIf="showQuestion" class="book-wrapper">
+  <h1>Вие оценихте всички книги успешно</h1>
+  <button (click)="repeat()" class="btn2">Искам да ги оценя отново</button>
+  <button (click)="ok()" class="btn2" >Не, ок съм</button>
+</div>
+
+<div *ngIf="thankYou" class="book-wrapper">
+  <h1>Благодаря за оценката!</h1>
+</div>
